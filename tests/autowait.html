@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Playground to test autowaiting for WebElement</h1>
+<h2>click()</h2>
+<p>
+    <button id="first" onclick="first_button_on_click()">Enable button</button>
+</p>
+<p>
+    <button id="second" disabled onclick="second_button_on_click()">Second button</button>
+</p>
+<p id="placeholder"></p>
+<h2>send_keys()</h2>
+<p>
+    <button id="third" onclick="third_button_on_click()">Enable input</button>
+</p>
+<p>
+    <label for="input">Disabled input</label><input id="input" disabled />
+</p>
+<h2>clear()</h2>
+<p>
+    <button id="fourth" onclick="enable('textarea')">Enable textarea</button>
+</p>
+<p>
+    <label for="textarea">Disabled textarea</label><textarea id="textarea" disabled>Some text which must be cleared</textarea>
+</p>
+
+<script>
+    function first_button_on_click() {
+        setTimeout(() => {
+            document.getElementById("second").disabled = false;
+        }, 1500);
+    }
+
+    function second_button_on_click() {
+        document.getElementById("placeholder").innerText = "Second button works!";
+    }
+
+    function third_button_on_click() {
+        setTimeout(() => {
+            document.getElementById("input").disabled = false;
+        }, 1500);
+    }
+
+    function enable(id) {
+        setTimeout(() => {
+            document.getElementById(id).disabled = false;
+        }, 1500);
+    }
+</script>
+</body>
+</html>
